@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../components/Layout'
+import Layout from '@/components/Layout'
 
 import { useRouter } from 'next/dist/client/router'
 
@@ -14,7 +14,6 @@ export default function EventPage() {
       <p>{router.pathname}</p>
       <p>{router.query.slug}</p>
       <button onClick={()=>router.push('/')}>click</button>
-
     </Layout>
   )
 }
