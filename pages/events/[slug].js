@@ -32,12 +32,12 @@ export default function EventPage({evt}) {
         </div>
 
         <span>
-          {evt.date} at {evt.time}
+          {new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}
         </span>
         <h1>{evt.name}</h1>
         {evt.image && (
           <div className={styles.image}>
-            <Image src={evt.image}
+            <Image src={evt.image.formats.medium.url}
               width={960} height={600} alt=''/>
           </div>
         )}
@@ -62,7 +62,7 @@ export default function EventPage({evt}) {
 // with dynamic routes, we have 2 options to fetch the data:
 // 1) combine both getStaticPaths & getStaticProps func - it wont work with just one of them!
 export async function getStaticPaths() {
-  const res = await fetch(`${API_URL}/api/events`);
+  const res = await fetch(`${API_URL}/events`);
   const events = await res.json()
 
   const paths = events.map(evt => ({
@@ -78,7 +78,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps( {params: {slug} }) {
   console.log(slug) 
-  const res = await fetch(`${API_URL}/api/events/${slug}`);
+  const res = await fetch(`${API_URL}/events?slug=${slug}`);
   const events = await res.json()
   //console.log(events) // logged in the backend
 
