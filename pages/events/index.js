@@ -4,7 +4,7 @@ import EventItem from '@/components/EventItem'
 import {API_URL} from '@/config/index'
 
 export default function EventsPage({events}) {
-  console.log(events) // logged in the frontend
+  //console.log(events) // logged in the frontend
   return (
       <Layout> {/* here it wont show the showcase because of {router.pathname ==='/' && <Showcase />}*/}
         <h1>Events</h1>

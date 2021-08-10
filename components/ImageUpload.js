@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {API_URL} from '@/config/index'
 import styles from '@/styles/Form.module.css'
 
+
 export default function ImageUpload({evtId, imageUploaded}) {
 
   const [image, setImage] = useState(null)
@@ -18,7 +19,7 @@ export default function ImageUpload({evtId, imageUploaded}) {
     formData.append('ref', 'events')
     formData.append('refId', evtId)
     formData.append('field', 'image')
-
+    
     const res = await fetch(`${API_URL}/upload`, {
       method: 'POST',
       body: formData
