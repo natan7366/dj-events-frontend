@@ -27,8 +27,9 @@ export default function EventsPage( {events, page , total} ) {
 
 //export async function getServerSideProps() {
 export async function getServerSideProps({query: {page=1}}) {
-  console.log(page)
-  // calculate start page --> +page convert it from str to number
+  //console.log(page)
+
+  // Calculate start page --> +page convert it from str to number
   // the start is the index of the events array
   const start = +page === 1 ? 0 : (+page-1) * PER_PAGE
 
